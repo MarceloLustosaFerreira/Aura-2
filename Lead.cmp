@@ -1,0 +1,29 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	
+    
+    <aura:attribute name="spinner" type="boolean" default="false" />
+    <lightning:card title="Criar Lead">
+     
+        <div class="slds-p-horizontal_small">
+           
+            <lightning:recordEditForm aura:id="recordEditForm" objectApiName="Lead" onsubmit="{!c.handleSubmit}" onsuccess="{!c.handleSuccess}"><!--Informar Objeto-->
+                 
+                <lightning:inputField fieldName="Name" />
+                <lightning:inputField fieldName="Company" />
+                <lightning:inputField fieldName="Phone" />
+                <lightning:inputField fieldName="Status" />
+                <lightning:button class="slds-m-top_small" type="submit" label="Adicionar Lead" />
+                
+            </lightning:recordEditForm>
+            
+        </div>
+        
+    </lightning:card>
+  
+    <aura:if isTrue="{!v.spinner}">
+        <lightning:spinner alternativeText="Loading" size="medium" />
+    </aura:if> 
+   
+    
+
+</aura:component>
